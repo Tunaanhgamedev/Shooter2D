@@ -1,40 +1,42 @@
-# 🎮 2D Top-Down Action Framework (Unity)
+# 🔫 Shooter2D: Survival Action Framework
 
 [![Unity Version](https://img.shields.io/badge/Unity-2022.3%20LTS-blue.svg?style=flat-square&logo=unity)](https://unity.com/)
 [![Language](https://img.shields.io/badge/Language-C%23-green.svg?style=flat-square&logo=c-sharp)](https://docs.microsoft.com/en-us/dotnet/csharp/)
-[![Platform](https://img.shields.io/badge/Platform-PC%20%7C%20Web-orange.svg?style=flat-square)](https://unity.com/)
+[![Genre](https://img.shields.io/badge/Genre-Survivor%20%7C%20Auto--Shooter-red.svg?style=flat-square)](https://unity.com/)
 [![License](https://img.shields.io/badge/License-MIT-lightgrey.svg?style=flat-square)](LICENSE)
 
-> Một bộ mã nguồn (framework) hoàn chỉnh cho trò chơi hành động 2D góc nhìn từ trên xuống (Top-Down), được xây dựng với kiến trúc module hóa, dễ dàng mở rộng và tối ưu hiệu suất.
+> Một Framework chuyên sâu cho thể loại trò chơi hành động sinh tồn (Survivor) và bắn súng tự động (Auto-Shooter) trong môi trường 2D, tập trung vào khả năng mở rộng hệ thống vũ khí và quản lý kẻ địch theo đợt.
 
 ---
 
 ## 📖 Giới thiệu
 
-Dự án này là một bản thử nghiệm (prototype) cao cấp cho thể loại **Top-Down Shooter/Slasher**, tập trung vào việc triển khai các hệ thống cốt lõi bền vững:
-* **Kiến trúc sạch (Clean Architecture):** Sử dụng Singleton Pattern và ScriptableObjects để quản lý dữ liệu.
-* **Hệ thống điều khiển hiện đại:** Tích hợp Unity Input System mới nhất.
-* **Trí tuệ nhân tạo (AI):** Hệ thống tìm đường thông minh và trạng thái chiến đấu linh hoạt.
+**Shooter2D** là một dự án Unity hoàn chỉnh, triển khai các cơ chế cốt lõi của dòng game sinh tồn hiện đại (như Vampire Survivors). Dự án tập trung vào việc tối ưu hóa hiệu suất khi xử lý số lượng lớn kẻ địch và hệ thống nâng cấp nhân vật năng động.
+
+### Các trụ cột cốt lõi:
+*   **Hệ thống chiến đấu tự động (Auto-Combat):** Cơ chế tự động tìm mục tiêu và khai hỏa thông minh.
+*   **Quản lý tài nguyên & Tiến trình:** Hệ thống Kinh nghiệm (XP), Cấp độ (Level) và các bảng nâng cấp.
+*   **Trí tuệ nhân tạo (Advanced AI):** Tích hợp A* Pathfinding để kẻ địch di chuyển thông minh hơn.
 
 ---
 
 ## ✨ Các Tính Năng Nổi Bật
 
-### 🛡️ Hệ Thống Người Chơi (Player System)
-* **Movement:** Di chuyển 8 hướng mượt mà, cơ chế lướt (Dash) tiêu tốn thể lực (Stamina).
-* **Combat:** Hệ thống vũ khí linh hoạt (Melee/Ranged) thông qua `IWeapon` interface.
-* **VFX:** Hiệu ứng Trail Renderer khi lướt và Flash hiệu ứng khi nhận sát thương.
-* **Stats:** Quản lý Máu (Health) và Thể lực (Stamina) với cơ chế tự hồi phục.
+### ⚔️ Hệ Thống Chiến Đấu (Combat System)
+*   **Auto-Targeting:** Vũ khí tự động xác định và xoay về phía kẻ địch gần nhất.
+*   **Multi-Weapon Management:** Quản lý đồng thời nhiều loại vũ khí với các chỉ số riêng biệt (sát thương, tốc độ bắn, tầm bắn).
+*   **Projectile Logic:** Hệ thống đạn đạo có hiệu ứng Muzzle, va chạm và gây sát thương ngẫu nhiên trong khoảng (min/max damage).
+*   **Special Effects:** Cơ chế đóng băng kẻ địch (Freeze) và các hiệu ứng SFX đi kèm.
 
-### 🧠 Trí Tuệ Nhân Tạo (AI & Navigation)
-* **Pathfinding:** Tích hợp **A* Pathfinding Project** giúp kẻ địch vượt địa hình phức tạp.
-* **State Machine:** Kẻ địch có các trạng thái: *Roaming* (Tuần tra), *Chasing* (Đuổi theo), và *Attacking* (Tấn công).
-* **Diversity:** Hỗ trợ nhiều loại kẻ địch khác nhau (ví dụ: Grape - kẻ địch tấn công tầm xa).
+### 🌊 Quản Lý Kẻ Địch & Spawn (Enemy & Spawner)
+*   **Wave System:** `SpawnerManager` điều phối các đợt tấn công của kẻ địch theo thời gian.
+*   **Pathfinding:** Kẻ địch sử dụng `Seeker` và `Path` để vượt qua vật cản, đuổi theo người chơi một cách tối ưu.
+*   **Scaling Difficulty:** Chỉ số của kẻ địch có thể điều chỉnh linh hoạt theo tiến trình trò chơi.
 
-### ⚙️ Hệ Thống Quản Lý (Core Management)
-* **Scene Management:** Chuyển cảnh mượt mà với hiệu ứng Fade-in/out.
-* **Singleton Framework:** Đảm bảo tính duy nhất và dễ dàng truy cập cho các Manager (GameManager, Inventory, UI).
-* **Cinemachine:** Camera theo dõi thông minh, rung màn hình (Screen Shake) và giới hạn khung hình (Confiner).
+### 📈 Tiến Trình & UI (Progression & Interface)
+*   **XP & Leveling:** Hệ thống thu thập kinh nghiệm và thăng cấp nhân vật.
+*   **UI Dynamic:** Thanh máu (HealthBar) động, bảng nâng cấp (LevelUpPanel) và bảng kết thúc (LosePanel).
+*   **Timer System:** Đồng hồ đếm ngược/tiến để quản lý thời gian sinh tồn.
 
 ---
 
@@ -43,11 +45,11 @@ Dự án này là một bản thử nghiệm (prototype) cao cấp cho thể lo�
 | Thành phần | Công nghệ | Chi tiết |
 | :--- | :--- | :--- |
 | **Engine** | Unity 2022.3.x | Long Term Support (LTS) |
-| **Rendering** | Universal Render Pipeline (URP) | Tối ưu hóa cho 2D Light & Shadows |
-| **Input** | Input System Package | Hỗ trợ đa thiết bị (Keyboard/Gamepad) |
-| **Animation** | 2D Animation & Sprite Editor | Skeletal Animation & Frame-based |
-| **Navigation** | A* Pathfinding Project | Xử lý đường đi chuyên nghiệp |
-| **UI** | TextMesh Pro | Hiển thị văn bản sắc nét |
+| **Navigation** | A* Pathfinding Project | Xử lý đường đi phức tạp cho AI |
+| **Scripting** | C# (Object Oriented) | Sử dụng Manager Pattern & Singleton |
+| **Physics** | Physics 2D | Xử lý va chạm và lực đẩy đạn đạo |
+| **UI** | Unity UI (uGUI) | Hệ thống Canvas linh hoạt |
+| **Audio** | Audio Source/Clip | Quản lý hiệu ứng âm thanh (SFX) |
 
 ---
 
@@ -55,56 +57,44 @@ Dự án này là một bản thử nghiệm (prototype) cao cấp cho thể lo�
 
 ```text
 Assets/
-├── Animations/       # Controllers và clips cho Player & Enemies
-├── Materials/        # Vật liệu cho Sprite và hiệu ứng đặc biệt
-├── Prefabs/          # Các đối tượng tái sử dụng (Player, Weapons, Props)
-├── Scenes/           # Các màn chơi chính và màn chơi thử nghiệm
-├── ScriptableObjs/   # Dữ liệu cấu hình vũ khí, máu, sát thương
-├── Scripts/          # Toàn bộ logic C# (Phân chia theo Module)
-│   ├── Enemies/      # Logic AI và hành vi kẻ địch
-│   ├── Management/   # Managers, Singleton, Scene Control
-│   ├── Player/       # Controller, Health, Stamina, Combat
-│   └── UI/           # Logic giao diện người dùng
-├── Sprites/          # Tài nguyên hình ảnh (Pixel Art)
-└── Tilemap/          # Tileset và dữ liệu bản đồ
+├── Animation/        # Clips cho nhân vật, kẻ địch và hiệu ứng
+├── Audio/            # Tài nguyên âm thanh (SFX & Music)
+├── Prefabs/          # Các đối tượng quan trọng (Bullet, Enemy, Player, UI)
+├── Resources/        # Tài nguyên tải động trong runtime
+├── Scenes/           # Các màn chơi và giao diện chính
+├── Scripts/          # Toàn bộ logic điều khiển dự án
+│   ├── Effect/       # Xử lý hiệu ứng hình ảnh/âm thanh
+│   ├── UI/           # Quản lý các Panel và giao diện
+│   ├── Weapon/       # Logic vũ khí và đạn đạo
+│   └── Enemy/        # AI và hệ thống Spawner
+├── Sprites/          # Hình ảnh Pixel Art / 2D Assets
+└── Tileset/          # Dữ liệu xây dựng môi trường (Map)
 ```
 
 ---
 
-## 🚀 Hướng Dẫn Cài Đặt
+## 🚀 Hướng Dẫn Khởi Chạy
 
-1. **Clone project:**
-   ```bash
-   git clone https://github.com/Tunaanhgamedev/2D_TopDown.git
-   ```
-2. **Mở bằng Unity Hub:**
-   * Sử dụng phiên bản **Unity 2022.3 LTS**.
-   * Đảm bảo các packages như `Input System`, `Cinemachine`, `A* Pathfinding` đã được cài đặt tự động qua Package Manager.
-3. **Chạy thử:**
-   * Mở scene `Main Scene` trong thư mục `Assets/Scenes`.
-   * Nhấn **Play** để bắt đầu.
+1. **Yêu cầu:** Unity 2022.3.x trở lên.
+2. **Cài đặt:**
+   * Clone repository hoặc tải source code.
+   * Mở dự án bằng Unity Hub.
+   * Đảm bảo plugin **A* Pathfinding Project** được cấu hình đúng trong phần `Plugins`.
+3. **Chạy Game:**
+   * Mở Scene chính tại `Assets/Scenes/Main.unity`.
+   * Nhấn nút **Play**.
 
 ---
 
-## 🎮 Điều Khiển (Default Controls)
+## 🎯 Lộ Trình Phát Triển (Roadmap)
 
-* **W/A/S/D:** Di chuyển nhân vật.
-* **Chuột trái:** Tấn công (Chém/Bắn).
-* **Space:** Lướt (Dash).
-* **Phím 1 - 5:** Thay đổi vũ khí nhanh.
-* **Esc:** Tạm dừng (Pause).
-
----
-
-## 🗺️ Lộ Trình Phát Triển (Roadmap)
-
-- [x] Hệ thống di chuyển và chiến đấu cơ bản.
-- [x] AI kẻ địch và hệ thống tìm đường.
-- [x] Hệ thống Inventory và thay đổi vũ khí.
-- [ ] Triển khai hệ thống Lưu/Tải (Save/Load system).
-- [ ] Thêm các loại Boss với kỹ năng đặc biệt.
-- [ ] Tối ưu hóa hiệu ứng âm thanh (SFX & BGM).
-- [ ] Hệ thống nhiệm vụ (Quest System).
+- [x] Hệ thống di chuyển và tự động bắn.
+- [x] Hệ thống XP, thăng cấp và chọn nâng cấp.
+- [x] AI tìm đường cơ bản với A*.
+- [ ] Thêm đa dạng loại kẻ địch (Boss, Kẻ địch tầm xa).
+- [ ] Triển khai hệ thống Shop/Vật phẩm trang bị lâu dài.
+- [ ] Tối ưu hóa Object Pooling cho đạn và kẻ địch để cải thiện FPS.
+- [ ] Hệ thống lưu trữ thành tích (Highscore).
 
 ---
 
@@ -112,14 +102,14 @@ Assets/
 
 **Tunaanhgamedev**
 * GitHub: [@Tunaanhgamedev](https://github.com/Tunaanhgamedev)
-* Email: [liên hệ của bạn]
+* Facebook: [Tuna Anh](https://www.facebook.com/tuna.anh.225285/)
 
 ---
 
 ## 📜 Giấy Phép (License)
 
-Dự án này được phát hành dưới giấy phép **MIT**. Bạn có thể tự do sử dụng và phát triển thêm.
+Dự án được bảo hộ bởi giấy phép **MIT**. Mọi đóng góp đều được chào đón!
 
 ---
 
-Nếu bạn thấy dự án này hữu ích, đừng quên tặng nó một ⭐ trên GitHub nhé!
+⭐ **Ủng hộ:** Nếu dự án này giúp ích cho bạn, hãy nhấn **Star** để khích lệ tác giả nhé!
